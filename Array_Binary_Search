@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cout<<"Enter the size of array: ";
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    int item;
+    cout<<"Enter the item value: ";
+    cin>>item;
+    int left,right,middle;
+    left = 0;
+    right = n-1;
+    /*while(left<=right){
+    middle = (left+right)/2;
+    if(a[middle]==item){
+        printf("Item found in the index: %d\n",middle);
+        return 0;
+    }
+    else if(a[middle]<item){
+        left = middle+1;
+    }
+    else
+        right = middle -1;
+    }*/
+    for(int i=0;i<=n-1;i++){
+        middle = (left+right)/2;
+    if(a[middle]==item){
+        printf("Item found in the index: %d\n",middle+1);
+        return 0;
+    }
+    else if(a[middle]<item){
+        left = middle+1;
+    }
+    else
+        right = middle -1;
+    }
+    cout<<"Item not found";
+
+}
