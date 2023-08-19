@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a[10] = {3,5,7,9,11};
+    int size = 5;
+    int item = 7;
+    int pos = 2;
+    while(item>a[pos]){
+
+
+        pos++;
+
+    }
+    cout<<pos<<endl;
+
+    for(int i=pos;i<size;i++){
+        a[i]=a[i+1];
+    }
+    for(int i=0;i<size-1;i++){
+        cout<<a[i]<<" ";
+    }
+
+}
