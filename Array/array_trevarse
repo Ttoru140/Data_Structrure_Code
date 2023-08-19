@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+void max_value(int a[],int n)
+{
+    int maxs = a[0];
+    for(int i=0; i<n; i++)
+    {
+        if(a[i]>maxs)
+        {
+            maxs = a[i];
+        }
+
+    }
+    cout<<"max_value is: "<<maxs<<endl;
+}
+void min_value(int a[],int n)
+{
+    int min = a[0];
+
+    for(int i=0; i<n; i++)
+    {
+        if(a[i]<min)
+        {
+            min = a[i];
+        }
+    }
+    cout<<"min_value is: "<<min<<endl;
+}
+void average_value(int a[],int n)
+{
+    double sum = 0;
+    for(int i=0; i<n;i++){
+        sum = sum+a[i];
+    }
+    cout<<"total_value is: "<<sum<<endl;
+    double avg = sum/n;
+    cout<<"average_value is: "<<avg<<endl;
+}
+void sin_value(int a[],int n)
+{
+    for(int i=0;i<n;i++){
+        double s = sin(a[i]);
+        cout<<"sin_value is :"<<s<<endl;
+
+    }
+}
+int main()
+{
+    int n;
+    cout<<"Enter the size of array:";
+    cin>>n;
+    int a[n];
+    for(int i=0; i<n; i++)
+    {
+        cin>>a[i];
+    }
+    max_value(a,n);
+    min_value(a,n);
+    average_value(a,n);
+    sin_value(a,n);
+    return 0;
+
+}
