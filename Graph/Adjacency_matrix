@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int v,e;
+    cout<<"Enter vertex: ";
+    cin>>v;
+    cout<<"Enter edge: ";
+    cin>>e;
+    int a[v][v];
+    for(int i=0; i<v; i++)
+    {
+        for(int j=0; j<v; j++)
+        {
+            a[i][j]=0;
+        }
+    }
+
+    cout<<"Enter connected edges :";
+    for(int i=0; i<e; i++)
+    {
+        int u,w;
+        cin>>u>>w;
+        if(u>v || w>v)
+        {
+            cout<<"Invalid."<<endl;
+            i--;
+        }
+        else
+        {
+            a[u][w] = 1;
+            a[w][u] = 1;
+        }
+    }
+
+
+    for(int i=0; i<v; i++)
+    {
+        for(int j=0; j<v; j++)
+        {
+            cout<<a[i][j]<<" ";
+
+
+        }
+        cout<<endl;
+    }
+
+}
+
