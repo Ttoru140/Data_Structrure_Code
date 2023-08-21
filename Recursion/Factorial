@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int fact(int n)
+{
+    if(n==0){
+        return 1;
+    }
+    else
+        return n*fact(n-1);
+}
+int main()
+{
+    int n;
+    cout<<"Enter the value for fectorial: ";
+    cin>>n;
+    if(n>0){
+        fact(n);
+        int s;
+        s = fact(n);
+        cout<<"The value after factorial is : "<<s<<endl;
+    }
+    else
+    {
+        cout<<"Invalid Number."<<endl;
+    }
+    return 0;
+}
