@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<vector<int>> adjlist;
+void addedges(int u,int v){
+    adjlist[u].push_back(v);
+    adjlist[v].push_back(u);
+}
+int main()
+{
+    int vertex;
+    cout<<"Enter vertex: ";
+    cin>>vertex;
+    adjlist.resize(vertex);
+    int edge;
+    cout<<"Enter edge: ";
+    cin>>edge;
+    cout<<"Enter connected edges.: ";
+    for(int i=0;i<edge;i++){
+        int u,v;
+        cin>>u>>v;
+        addedges(u,v);
+    }
+    cout<<"Adjacency list are :"<<endl;
+    for(int i=0;i<vertex;i++){
+        cout<< "adjacence of "<< i <<"-->";
+        for(auto j: adjlist[i]){
+            cout<< j <<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+
+}
