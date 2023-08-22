@@ -1,0 +1,37 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+const int INF = 1e9;
+int main()
+{
+    vector<vector<int >> graph = {
+    {7,5,INF, INF},
+    {7,INF,INF,2},
+    {INF,3,INF,INF},
+    {4,INF,1,INF}
+    };
+    int size = graph.size();
+    cout<<size<<endl;
+    vector<vector<int>> dist = graph;
+    for(int k=0;k<size;k++){
+        for(int i=0;i<size;i++){
+            for(int j=0;j<size;j++){
+                if(dist[i][k]+dist[k][j]<dist[i][j]){
+                    dist[i][j]= dist[i][k]+dist[k][j];
+                }
+
+            }
+        }
+    }
+    for(int i=0;i<size;i++){
+        for(int j=0;j<size;j++){
+            if(dist[i][j]==INF){
+                cout<<"INF"<<" ";
+            }
+            else{
+                cout<<dist[i][j]<<" ";
+            }
+        }
+        cout<<endl;
+    }
+}
