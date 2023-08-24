@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n=4;
+    int m[n][n];
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            cin>>m[i][j];
+        }
+    }
+    cout<<endl;
+
+
+    for(int k=0; k<n; k++)
+    {
+        for(int i=0; i<n; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                m[i][j]= m[i][j]|m[i][k]&m[k][j];
+                cout<<m[i][j]<<" ";
+            }
+            cout<<endl;
+        }
+        cout<<endl;
+    }
+    cout<<endl;
+    int count =0;
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            if(m[i][j]==0)
+            {
+                count++;
+            }
+
+        }
+
+    }
+    if(count==0)
+    {
+        cout<<"Strongly connected"<<endl;
+    }
+    else
+        cout<<"not strongly connected"<<endl;
+
+}
