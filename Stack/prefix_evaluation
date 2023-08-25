@@ -52,4 +52,8 @@ int main()
     int pre = prefix("-+7*45+20");
     cout<<pre<<endl;
     return 0;
+/*string expression;
+    cout << "Enter a postfix expression: ";
+    getline(cin, expression);
+    cout<<prefix(expression)<<endl;*/
 }
