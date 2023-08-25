@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using  namespace std;
+int top = 0;
+int st[10];
+void push(int item){
+    st[top] = item;
+    top =top+1;
+}
+int pop(){
+    top = top -1;
+    int tmp = st[top];
+    return tmp;
+}
+int prefix(string s)
+{
+    for(int i=s.length()-1;i>=0;i--){
+        if(s[i]>='0' && s[i]<='9'){
+            push(s[i]-'0');
+        }
+        else
+        {
+            int a = pop();
+            int b = pop();
+            switch(s[i]){
+            case '+':
+                push(a+b);
+                break;
+
+            case '-':
+                push(a-b);
+                break;
+
+            case '*':
+                push(a*b);
+                break;
+
+            case '/':
+                push(a/b);
+                break;
+
+            case '^':
+                push(a^b);
+                break;
+            }
+        }
+    }
+    return st[top-1];
+
+}
+int main()
+{
+    int pre = prefix("-+7*45+20");
+    cout<<pre<<endl;
+    return 0;
+}
