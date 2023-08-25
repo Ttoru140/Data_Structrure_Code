@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+int top = 0;
+int st[100];
+void push(int item)
+{
+    st[top]=item;
+    top = top+1;
+
+}
+int pop()
+{
+    top = top-1;
+    int temp = st[top];
+    return temp;
+}
+int postfix_evaluation(string s)
+{
+    for(int i=0; i<s.length(); i++)
+    {
+        if(s[i]>='0' && s[i]<='9')
+        {
+            push(s[i] -'0');
+        }
+        else
+        {
+            int b = pop();
+            int a = pop();
+            switch(s[i])
+            {
+            case '+':
+                push (a+b);
+                break;
+            case '-':
+                push(a-b);
+                break;
+            case '*':
+                push (a*b);
+                break;
+            case '/':
+                push (a/b);
+                break;
+            case '^':
+                push (a^b);
+                break;
+
+            }
+        }
+    }
+    return st[top-1];
+}
+int main()
+{
+    int ans = postfix_evaluation("562+*3-");
+    cout<<ans<<endl;
+}
