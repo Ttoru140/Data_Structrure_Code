@@ -1,0 +1,77 @@
+#include<bits/stdc++.h>
+using namespace std;
+int top = 0;
+int st[100];
+void push(int n)
+{
+    st[top] = n;
+    top = top+1;
+}
+int pop()
+{
+    top = top-1;
+    int temp = st[top];
+    return temp;
+}
+int itp(string s)
+{
+
+    for(int i=0; i<s.length(); i++)
+    {
+        if(s[i]>='0' && s[i]<='9')
+        {
+            int x =(s[i]-'0');
+            i++;
+            while(s[i]>='0' && s[i]<='9')
+            {
+                x = x*10;
+                x = x+(s[i]-'0');
+                i++;
+            }
+            push(x);
+        }
+        else if(s[i]==',')
+        {
+            continue;
+        }
+        else if(s[i]>='a' && s[i]<='z')
+        {
+            cout<<"enter"<<s[i];
+            int x;
+            cin>>x;
+            push(x);
+        }
+        else
+        {
+            int a = pop();
+
+            int b = pop();
+
+            switch(s[i])
+            {
+            case '+':
+                push(b+a);
+                break;
+            case '-':
+                push(b-a);
+                break;
+            case '*':
+                push(b*a);
+                break;
+            case '/':
+                push(b/a);
+                break;
+            case '^':
+                push(pow(b,a));
+                break;
+            }
+        }
+    }
+    return st[top-1];
+}
+int main()
+{
+    cout<<itp("5,6,a,+,*,12,4,/,-")<<endl;
+
+    return 0;
+}
